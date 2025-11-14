@@ -12,7 +12,14 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Vamos Cozinhar?',
-      theme: ThemeData(primarySwatch: Colors.blue),
+      theme: ThemeData(
+        primarySwatch: Colors.pink,
+        fontFamily: 'Raleway',
+        canvasColor: Color.fromRGBO(183, 181, 56, 1), //Cor do fundo
+        textTheme: ThemeData.light().textTheme.copyWith(
+          titleLarge: TextStyle(fontSize: 20, fontFamily: 'RobotoCondensed'),
+        ),
+      ),
       home: CategoriesScreen(),
     );
   }
