@@ -26,6 +26,19 @@ class MealDetailScreen extends StatelessWidget {
               style: Theme.of(context).textTheme.titleLarge,
             ),
           ),
+          Container(
+            width: 200,
+            height: 300,
+            child: ListView.builder(
+              itemCount: meal.ingredients.length,
+              itemBuilder: (ctx, index) {
+                return Card(
+                  child: Text(meal.ingredients[index]),
+                  color: Colors.lightGreen,
+                );
+              },
+            ),
+          ),
         ],
       ),
     );
