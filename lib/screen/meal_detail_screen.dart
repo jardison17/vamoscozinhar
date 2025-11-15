@@ -35,32 +35,43 @@ class MealDetailScreen extends StatelessWidget {
         centerTitle: true,
         backgroundColor: Colors.pink,
       ),
-      body: Column(
-        children: [
-          Container(
-            height: 300,
-            width: double.infinity,
-            child: Image.network(meal.imageUrl, fit: BoxFit.cover),
-          ),
-          _createSelecTitle(context, 'Ingredientes'),
-          _createSelectContainer(
-            ListView.builder(
-              itemCount: meal.ingredients.length,
-              itemBuilder: (ctx, index) {
-                return Card(
-                  child: Padding(
-                    padding: const EdgeInsets.symmetric(
-                      vertical: 5,
-                      horizontal: 10,
-                    ),
-                    child: Text(meal.ingredients[index]),
-                  ),
-                  color: Colors.orange,
-                );
-              },
+      body: SingleChildScrollView(
+        child: Column(
+          children: [
+            Container(
+              height: 300,
+              width: double.infinity,
+              child: Image.network(meal.imageUrl, fit: BoxFit.cover),
             ),
-          ),
-        ],
+            _createSelecTitle(context, 'Ingredientes'),
+            _createSelectContainer(
+              ListView.builder(
+                itemCount: meal.ingredients.length,
+                itemBuilder: (ctx, index) {
+                  return Card(
+                    child: Padding(
+                      padding: const EdgeInsets.symmetric(
+                        vertical: 5,
+                        horizontal: 10,
+                      ),
+                      child: Text(meal.ingredients[index]),
+                    ),
+                    color: Colors.orange,
+                  );
+                },
+              ),
+            ),
+            _createSelecTitle(context, 'Passos'),
+            _createSelectContainer(
+              ListView.builder(
+                itemCount: meal.steps.length,
+                itemBuilder: (ctx, index) {
+                  return ListTile(leading: CircleAvatar(child: Text('$index')));
+                },
+              ),
+            ),
+          ],
+        ),
       ),
     );
   }
