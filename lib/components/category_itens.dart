@@ -8,13 +8,7 @@ class CategoryItens extends StatelessWidget {
   const CategoryItens(this.category);
   //Função Navigator
   void _celectCategory(BuildContext context) {
-    Navigator.of(context).push(
-      MaterialPageRoute(
-        builder: (_) {
-          return CategoriesMealsScreen(category);
-        },
-      ),
-    );
+    Navigator.of(context).pushNamed('/Categories-meals', arguments: category);
   }
 
   @override
