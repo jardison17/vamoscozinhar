@@ -12,7 +12,22 @@ class MealDetailScreen extends StatelessWidget {
         centerTitle: true,
         backgroundColor: Colors.pink,
       ),
-      body: Center(child: Text('Detalhes da Receita')),
+      body: Column(
+        children: [
+          Container(
+            height: 300,
+            width: double.infinity,
+            child: Image.network(meal.imageUrl, fit: BoxFit.cover),
+          ),
+          Container(
+            margin: EdgeInsets.symmetric(vertical: 10),
+            child: Text(
+              'Ingredientes',
+              style: Theme.of(context).textTheme.titleLarge,
+            ),
+          ),
+        ],
+      ),
     );
   }
 }
