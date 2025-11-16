@@ -11,7 +11,7 @@ class MealDetailScreen extends StatelessWidget {
 
   Widget _createSelectContainer(Widget child) {
     return Container(
-      width: 300,
+      width: 330,
       height: 200,
       padding: EdgeInsets.all(10),
       margin: EdgeInsets.all(10),
@@ -66,9 +66,14 @@ class MealDetailScreen extends StatelessWidget {
               ListView.builder(
                 itemCount: meal.steps.length,
                 itemBuilder: (ctx, index) {
-                  return ListTile(
-                    leading: CircleAvatar(child: Text('$index')),
-                    title: Text(meal.steps[index]),
+                  return Column(
+                    children: [
+                      ListTile(
+                        leading: CircleAvatar(child: Text('${index + 1}')),
+                        title: Text(meal.steps[index]),
+                      ),
+                      Divider(),
+                    ],
                   );
                 },
               ),
